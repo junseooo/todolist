@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// App.tsx
+import styled from "styled-components";
+import TodoList from "./components/TodoList";
+import Calendar from "./components/Calendar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <AppContainer>
+          <Routes>
+            <Route path="/" element={<Calendar />} />
+            <Route path="/todo/:date" element={<TodoList />} />
+          </Routes>
+        </AppContainer>
+      </Router>
+    </Provider>
   );
-}
+};
 
 export default App;
+
+const AppContainer = styled.div`
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
