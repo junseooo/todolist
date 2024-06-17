@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import { ITodo } from "../interface";
 
 const app = express();
 const port = 8080;
@@ -12,7 +13,7 @@ let corsOptions = {
 app.use(express.json());
 app.use(cors(corsOptions));
 
-let todos = [];
+let todos: ITodo[] = [];
 let id = 1;
 
 app.get("/todos", (req, res) => {
@@ -20,9 +21,9 @@ app.get("/todos", (req, res) => {
 });
 
 app.post("/todos", (req, res) => {
-  const newTodo = {
+  const newTodo: ITodo = {
     id: id++,
-    title: req.body.title,
+    text: req.body.title,
     completed: false,
   };
   todos.push(newTodo);

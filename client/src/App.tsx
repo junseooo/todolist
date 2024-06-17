@@ -1,4 +1,3 @@
-// App.tsx
 import styled from "styled-components";
 import TodoList from "./components/TodoList";
 import Calendar from "./components/Calendar";

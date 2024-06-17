@@ -1,4 +1,4 @@
-import { ITodo } from "../interface/ITodo";
+import { ITodo } from '../../../interface';
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface TodosState {
