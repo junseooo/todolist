@@ -15,6 +15,9 @@ app.use(express_1.default.json());
 app.use((0, cors_1.default)(corsOptions));
 let todos = [];
 let id = 1;
+app.get("/", (req, res) => {
+    res.send("Hello, world");
+});
 app.get("/todos", (req, res) => {
     res.json(todos);
 });

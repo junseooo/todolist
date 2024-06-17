@@ -16,6 +16,10 @@ app.use(cors(corsOptions));
 let todos: ITodo[] = [];
 let id = 1;
 
+app.get("/", (req, res) => {
+  res.send("Hello, world");
+})
+
 app.get("/todos", (req, res) => {
   res.json(todos);
 });
